@@ -1,0 +1,28 @@
+{
+  "name": "Angular",
+  "version": "1.0.0",
+  "description": "This is an exercise program",
+  "author": "skybjf@126.com && javaring@sina.com",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.6.1",
+    "bower": "^1.7.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.4.2"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a 0.0.0.0 -p 8000"
+  }
+}

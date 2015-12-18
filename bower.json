@@ -1,0 +1,16 @@
+{
+  "name": "Angular",
+  "description": "This is an exercise program",
+  "version": "1.0.0",
+  "homepage": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-mocks": "1.4.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.5",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x"
+  }
+}
