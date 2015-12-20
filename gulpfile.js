@@ -15,52 +15,59 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload');
+// config develop path and output path
+var sasspath='app/dev/css/*.scss',
+    sassout='app/css',
+    jspath='app/dev/js/*.js',
+    jsout='app/js',
+    imagepath='app/dev/img/**/*',
+    imageout='app/img';
 // Styles
 gulp.task('styles', function() {
-    return gulp.src('app/dev/css/*.scss')
+    return gulp.src(sasspath)
         .pipe(sass())
         // .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         // .pipe(gulp.dest('app/css'))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest(sassout)
         .pipe(notify({message: 'Styles task complete'}));
 });
 // Scripts
 gulp.task('scripts', function() {
-    return gulp.src('app/dev/js/*.js')
+    return gulp.src(jspath)
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         // .pipe(concat('all.js'))
         // .pipe(rename({suffix: '.min'}))
         // .pipe(uglify())
-        .pipe(gulp.dest('app/js'))
+        .pipe(gulp.dest(jsout)
         .pipe(notify({message: 'Scripts task complete'}));
 });
 // Images
 gulp.task('images', function() {
-    return gulp.src('app/dev/img/**/*')
+    return gulp.src(imagepath)
         .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest('app/img'))
+        .pipe(gulp.dest(imageout))
         .pipe(notify({message: 'Images task complete'}));
 });
 // Default task
 gulp.task('default', function() {
-    // gulp.start('styles', 'scripts', 'images');
+    gulp.start('styles', 'scripts', 'images');
     // gulp.start('styles', 'images');
-    gulp.start('images');
+    // gulp.start('images');
 });
 // Watch
 gulp.task('watch', function() {
     // Watch .scss files
-    gulp.watch('app/dev/css/*.scss', ['styles']);
+    gulp.watch(sasspath, ['styles']);
     // Watch .js files
-    gulp.watch('app/dev/js/*.js', ['scripts']);
+    gulp.watch(jspath, ['scripts']);
     // Watch image files
-    gulp.watch('app/dev/img/**/*', ['images']);
+    gulp.watch(imagepath, ['images']);
     // Create LiveReload server
     livereload.listen();
     // Watch any files in assets/, reload on change
     gulp.watch('*').on('change', livereload.changed);
-    gulp.watch(['app/css/*.css', 'app/js/*.js', 'app/img/*']).on('change', livereload.changed);
+    gulp.watch([sassout, jsout, imageout]).on('change', livereload.changed);
 });
