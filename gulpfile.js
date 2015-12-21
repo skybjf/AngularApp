@@ -30,7 +30,7 @@ gulp.task('styles', function() {
         // .pipe(gulp.dest('app/css'))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest(sassout)
+        .pipe(gulp.dest(sassout))
         .pipe(notify({message: 'Styles task complete'}));
 });
 // Scripts
@@ -41,7 +41,7 @@ gulp.task('scripts', function() {
         // .pipe(concat('all.js'))
         // .pipe(rename({suffix: '.min'}))
         // .pipe(uglify())
-        .pipe(gulp.dest(jsout)
+        .pipe(gulp.dest(jsout))
         .pipe(notify({message: 'Scripts task complete'}));
 });
 // Images
