@@ -1,6 +1,6 @@
 # 简述
 
-	使用Bootstrap和Angular框架，并且暂不打算引入Jquery。[Angular ui Bootstrap](https://github.com/angular-ui/bootstrap)。[npm官方文档](https://docs.npmjs.com/){:target="_blank"} 
+使用Bootstrap和Angular框架，并且暂不打算引入Jquery。 [Angular ui Bootstrap](https://github.com/angular-ui/bootstrap)。
 
 # 使用说明
 
