@@ -2,11 +2,18 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var musicplayerServices = angular.module('musicplayerServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
-  function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-    });
-  }]);
+musicplayerServices.factory('Music', ['$resource',
+    function($resource) {
+        return $resource('json/music.json', {}, {
+            query: {
+                method: 'GET',
+                params: {
+                    phoneId: 'phones'
+                },
+                isArray: true
+            }
+        });
+    }
+]);

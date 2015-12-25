@@ -2,21 +2,25 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var musicplayerControllers = angular.module('musicplayerControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
-  }]);
+musicplayerControllers.controller('MusicPlayerCtrl', ['$scope', 'Music',
+    function($scope, Music) {
+        $scope.musics = Music.query();
+        $scope.orderProp = 'id';
+    }
+]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
+// musicplayerControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
+//     function($scope, $routeParams, Phone) {
+//         $scope.phone = Phone.get({
+//             phoneId: $routeParams.phoneId
+//         }, function(phone) {
+//             $scope.mainImageUrl = phone.images[0];
+//         });
 
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    };
-  }]);
+//         $scope.setImage = function(imageUrl) {
+//             $scope.mainImageUrl = imageUrl;
+//         };
+//     }
+// ]);
